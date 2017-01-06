@@ -1,0 +1,32 @@
+{
+  "name": "@ambassify/fetch-queued",
+  "version": "1.0.0",
+  "description": "Use the fetch API to run requests with a maximum concurrency.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambassify/fetch-queued.git"
+  },
+  "keywords": [
+    "node-fetch",
+    "fetch",
+    "queue",
+    "concurrent",
+    "concurrency"
+  ],
+  "author": "Ambassify <dev@ambassify.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ambassify/fetch-queued/issues"
+  },
+  "homepage": "https://github.com/ambassify/fetch-queued#readme",
+  "dependencies": {
+    "node-fetch": "^1.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2"
+  }
+}
