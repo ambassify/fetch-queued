@@ -13,12 +13,13 @@ function createAgent(protocol, size) {
 module.exports =
 class FetchQueue {
 
-    constructor(size) {
+    constructor(size, options = {}) {
         this._queue = [];
         this._pending = 0;
         this._size = size;
         this._httpsAgent = createAgent(https, this._size);
         this._httpAgent = createAgent(http, this._size);
+        this._fetch = options.fetch || _fetch;
 
         this.fetch = this.fetch.bind(this);
         this._finish = this._finish.bind(this);
@@ -34,7 +35,7 @@ class FetchQueue {
         init.agent = init.agent || agent;
 
         return new Promise(resolve => this._push(resolve))
-            .then(() => _fetch(input, init))
+            .then(() => this._fetch(input, init))
             .then(this._finish)
             .catch(this._error);
     }
