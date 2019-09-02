@@ -1,4 +1,4 @@
-const _fetch = require('node-fetch');
+const _fetch = require('@ambassify/fetch');
 const https = require('https');
 const http = require('http');
 
