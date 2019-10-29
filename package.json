@@ -27,6 +27,6 @@
     "@ambassify/fetch": "^2.1.0"
   },
   "devDependencies": {
-    "eslint": "^3.12.2"
+    "eslint": "^6.6.0"
   }
 }
