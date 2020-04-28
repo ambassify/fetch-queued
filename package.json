@@ -3,10 +3,13 @@
   "version": "1.2.1",
   "description": "Use the fetch API to run requests with a maximum concurrency.",
   "main": "src/index.js",
+  "browser": "dist/browser.js",
   "scripts": {
     "test": "npm -s run test:lint && npm -s run test:unit",
     "test:unit": "mocha",
-    "test:lint": "eslint src"
+    "test:lint": "eslint src",
+    "prepublishOnly": "npm -s run build",
+    "build": "babel -d dist src"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,9 @@
     "@ambassify/fetch": "^2.1.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "eslint": "^6.8.0",
     "mocha": "^7.1.2",
     "nock": "^12.0.3"
