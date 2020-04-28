@@ -16,14 +16,20 @@ class FetchQueue {
     constructor(size, options = {}) {
         this._queue = [];
         this._pending = 0;
-        this._size = size;
-        this._httpsAgent = createAgent(https, this._size);
-        this._httpAgent = createAgent(http, this._size);
         this._fetch = options.fetch || _fetch;
 
         this.fetch = this.fetch.bind(this);
         this._finish = this._finish.bind(this);
         this._error = this._error.bind(this);
+
+        this.resize(size);
+    }
+
+    resize(size) {
+        this.size = size;
+        this._size = size; // @deprecated
+        this._httpsAgent = createAgent(https, this.size);
+        this._httpAgent = createAgent(http, this.size);
     }
 
     fetch(input, init) {
@@ -41,7 +47,7 @@ class FetchQueue {
     }
 
     _check() {
-        if (this._pending >= this._size)
+        if (this._pending >= this.size)
             return;
 
         if (this._queue.length < 1)
