@@ -30,6 +30,9 @@ class FetchQueue {
         this._size = size; // @deprecated
         this._httpsAgent = createAgent(https, this.size);
         this._httpAgent = createAgent(http, this.size);
+
+        // Trigger queued items if queue became bigger
+        this._check();
     }
 
     fetch(input, init) {
@@ -56,6 +59,9 @@ class FetchQueue {
         this._pending++;
         const start = this._queue.shift();
         start();
+
+        // Flush all queued items until queue is full
+        this._check();
     }
 
     _push(start) {
