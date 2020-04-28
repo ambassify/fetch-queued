@@ -4,7 +4,9 @@
   "description": "Use the fetch API to run requests with a maximum concurrency.",
   "main": "src/index.js",
   "scripts": {
-    "test": "eslint src"
+    "test": "npm -s run test:lint && npm -s run test:unit",
+    "test:unit": "mocha",
+    "test:lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,8 @@
     "@ambassify/fetch": "^2.1.0"
   },
   "devDependencies": {
-    "eslint": "^3.12.2"
+    "eslint": "^3.12.2",
+    "mocha": "^7.1.2",
+    "nock": "^12.0.3"
   }
 }
