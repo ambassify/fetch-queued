@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/ambassify/fetch-queued#readme",
   "dependencies": {
-    "@ambassify/fetch": "^2.1.0"
+    "@ambassify/fetch": "^2.2.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
